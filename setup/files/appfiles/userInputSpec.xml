@@ -1,0 +1,39 @@
+<izpack:userinput version="5.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:izpack="http://izpack.org/schema/userinput"
+  xsi:schemaLocation="http://izpack.org/schema/userinput http://izpack.org/schema/5.0/izpack-userinput-5.0.xsd">
+
+  <panel id="db.panel" rigid="true" summaryKey="db.panel">
+    <field type="title" txt="Configuração do banco de dados" />
+    <field type="text" variable="prod.dbhost">
+      <spec txt="Host:" size="20" />
+    </field>
+    <field type="text" variable="prod.dbport">
+      <spec txt="Porta:" size="4" />
+    </field>
+    <field type="text" variable="prod.dbservice">
+      <spec txt="Serviço:" size="10" />
+    </field>
+
+    <field type="space" />
+
+    <field type="text" variable="prod.dbusername">
+      <spec txt="Usuário:" size="20" />
+    </field>
+    <field type="password" variable="prod.dbpassword">
+      <spec>
+        <pwd id="prod.dbpassword" txt="Senha:" size="20" />
+      </spec>
+    </field>
+
+    <field type="space" />
+
+    <field type="button" align="right">
+      <spec txt="Testar conexão" successMsg="Dados de configuração válidos">
+        <run class="br.com.pcsist.winthor.installer.components.TesteBancoOracle">
+          <msg id="pokedex.error" name="error" />
+        </run>
+      </spec>
+    </field>
+  </panel>
+
+</izpack:userinput>
